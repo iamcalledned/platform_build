@@ -32,6 +32,10 @@ _vendor_owner_whitelist := \
         samsung_arm \
         ti \
         trusted_logic \
+        ned \
+        manta \
+	proprietary \
+    	ned_manta \
         widevine
 
 
@@ -69,16 +73,16 @@ endif
 
 
 # Restrict paths
-ifneq (,$(filter path all, $(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_RESTRICT_VENDOR_FILES)))
+#ifneq (,$(filter path all, $(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_RESTRICT_VENDOR_FILES)))
 
-$(foreach m, $(_vendor_check_modules), \
-  $(if $(filter vendor/%, $(ALL_MODULES.$(m).PATH)),\
-    $(if $(filter $(TARGET_OUT_VENDOR)/%, $(ALL_MODULES.$(m).INSTALLED)),,\
-      $(error Error: vendor module "$(m)" in $(ALL_MODULES.$(m).PATH) \
-        in product "$(TARGET_PRODUCT)" being installed to \
-        $(ALL_MODULES.$(m).INSTALLED) which is not in the vendor tree))))
+#$(foreach m, $(_vendor_check_modules), \
+#  $(if $(filter vendor/%, $(ALL_MODULES.$(m).PATH)),\
+#    $(if $(filter $(TARGET_OUT_VENDOR)/%, $(ALL_MODULES.$(m).INSTALLED)),,\
+#      $(error Error: vendor module "$(m)" in $(ALL_MODULES.$(m).PATH) \
+#        in product "$(TARGET_PRODUCT)" being installed to \
+#        $(ALL_MODULES.$(m).INSTALLED) which is not in the vendor tree "$(TARGET_OUT_VENDOR)" "$(TARGET_OUT)"))))
 
-endif
+#endif
 
 _vendor_module_owner_info_txt := $(call intermediates-dir-for,PACKAGING,vendor_owner_info)/vendor_owner_info.txt
 $(_vendor_module_owner_info_txt): PRIVATE_INFO := $(_vendor_module_owner_info)
