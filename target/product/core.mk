@@ -26,6 +26,7 @@ PRODUCT_PACKAGES += \
     ApplicationsProvider \
     BackupRestoreConfirmation \
     BasicDreams \
+    Superuser \
     Browser \
     Contacts \
     ContactsProvider \
