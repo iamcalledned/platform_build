@@ -27,6 +27,7 @@ PRODUCT_PACKAGES += \
     BackupRestoreConfirmation \
     BasicDreams \
     Superuser \
+    Phonesky
     Browser \
     Contacts \
     ContactsProvider \
